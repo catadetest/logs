@@ -1,0 +1,848 @@
+=========================================================================
+
+  JBoss Bootstrap Environment
+
+  JBOSS_HOME: /opt/wildfly-javaapp
+
+  JAVA: /opt/jdk8/bin/java
+
+  JAVA_OPTS:  -server -Xms2G -Xmx8G -Djboss.bind.address.management=82.78.135.169 -Djboss.management.http.port=9991 -Djboss.bind.address=82.78.135.169 -Djboss.http.port=8082 -Djboss.bind.address.internal=10.0.0.1 -Djboss.http_internal.port=8082 -Djboss.bind.address.ajp_int=127.0.0.1 -Djboss.ajp.port=8011 -Dwebdb.url=jdbc:mysql://10.0.0.15:3306/webdb?autoReconnect=true\&connectTimeout=1000\&maxReconnects=2\&initialTimeout=1 -Dbst.log.level.console=OFF -Dbst.log.level.file=WARN -Dlog.level.handler.console=OFF -Dsolr.solr.home=/opt/solr-production/solr -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -XX:+UseG1GC -XX:+PerfDisableSharedMem -XX:+ParallelRefProcEnabled -XX:G1HeapRegionSize=32M -XX:MaxGCPauseMillis=250 -XX:InitiatingHeapOccupancyPercent=75 -XX:+UseLargePages -XX:+AggressiveOpts -verbose:gc -Xloggc:/data/LOGS/javaapp-wildfly/gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+PrintAdaptiveSizePolicy -XX:+PrintReferenceGC -Dsun.net.http.allowRestrictedHeaders=true -Dspring.profiles.active=prod -Dcontext_solr_host=82.78.135.166:8081 -javaagent:/home/catalin/elastic-apm-agent-1.18.0.RC1.jar -Delastic.apm.service_name=cool-service -Delastic.apm.application_packages=org.jboss.byteman -Delastic.apm.server_urls=http://82.78.135.170:8200
+
+=========================================================================
+
+Java HotSpot(TM) 64-Bit Server VM warning: Failed to reserve shared memory (errno = 12).
+Java HotSpot(TM) 64-Bit Server VM warning: Failed to reserve shared memory (errno = 12).
+Failed to start agent - JVM version not supported: 1.8.0_31 Java HotSpot(TM) 64-Bit Server VM 25.31-b07
+2020-07-24 13:24:16,590 INFO  [org.jboss.modules] (main) JBoss Modules version 1.3.3.Final
+2020-07-24 13:24:16,904 INFO  [org.jboss.msc] (main) JBoss MSC version 1.2.2.Final
+2020-07-24 13:24:17,023 INFO  [org.jboss.as] (MSC service thread 1-1) JBAS015899: WildFly 8.2.0.Final "Tweek" starting
+2020-07-24 13:24:17,032 DEBUG [org.jboss.as.config] (MSC service thread 1-1) Configured system properties:
+        [Standalone] =
+        awt.toolkit = sun.awt.X11.XToolkit
+        bst.log.level.console = OFF
+        bst.log.level.file = WARN
+        webdb.url = jdbc:mysql://10.0.0.15:3306/webdb?autoReconnect=true&connectTimeout=1000&maxReconnects=2&initialTimeout=1
+        context_solr_host = 82.78.135.166:8081
+        elastic.apm.application_packages = org.jboss.byteman
+        elastic.apm.server_urls = http://82.78.135.170:8200
+        elastic.apm.service_name = cool-service
+        file.encoding = UTF-8
+        file.encoding.pkg = sun.io
+        file.separator = /
+        java.awt.graphicsenv = sun.awt.X11GraphicsEnvironment
+        java.awt.headless = true
+        java.awt.printerjob = sun.print.PSPrinterJob
+        java.class.path = /opt/wildfly-javaapp/jboss-modules.jar:/home/catalin/elastic-apm-agent-1.18.0.RC1.jar
+        java.class.version = 52.0
+        java.endorsed.dirs = /opt/jdk1.8.0_31/jre/lib/endorsed
+        java.ext.dirs = /opt/jdk1.8.0_31/jre/lib/ext:/usr/java/packages/lib/ext
+        java.home = /opt/jdk1.8.0_31/jre
+        java.io.tmpdir = /tmp
+        java.library.path = /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+        java.net.preferIPv4Stack = true
+        java.runtime.name = Java(TM) SE Runtime Environment
+        java.runtime.version = 1.8.0_31-b13
+        java.specification.name = Java Platform API Specification
+        java.specification.vendor = Oracle Corporation
+        java.specification.version = 1.8
+        java.util.logging.manager = org.jboss.logmanager.LogManager
+        java.vendor = Oracle Corporation
+        java.vendor.url = http://java.oracle.com/
+        java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+        java.version = 1.8.0_31
+        java.vm.info = mixed mode
+        java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+        java.vm.specification.name = Java Virtual Machine Specification
+        java.vm.specification.vendor = Oracle Corporation
+        java.vm.specification.version = 1.8
+        java.vm.vendor = Oracle Corporation
+        java.vm.version = 25.31-b07
+        javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+        javax.xml.datatype.DatatypeFactory = __redirected.__DatatypeFactory
+        javax.xml.parsers.DocumentBuilderFactory = __redirected.__DocumentBuilderFactory
+        javax.xml.parsers.SAXParserFactory = __redirected.__SAXParserFactory
+        javax.xml.stream.XMLEventFactory = __redirected.__XMLEventFactory
+        javax.xml.stream.XMLInputFactory = __redirected.__XMLInputFactory
+        javax.xml.stream.XMLOutputFactory = __redirected.__XMLOutputFactory
+        javax.xml.transform.TransformerFactory = __redirected.__TransformerFactory
+        javax.xml.validation.SchemaFactory:http://www.w3.org/2001/XMLSchema = __redirected.__SchemaFactory
+        javax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom = __redirected.__XPathFactory
+        jboss.ajp.port = 8011
+        jboss.bind.address = 82.78.135.169
+        jboss.bind.address.ajp_int = 127.0.0.1
+        jboss.bind.address.internal = 10.0.0.1
+        jboss.bind.address.management = 82.78.135.169
+        jboss.home.dir = /opt/wildfly-javaapp
+        jboss.host.name = web11-server
+        jboss.http.port = 8082
+        jboss.http_internal.port = 8082
+        jboss.management.http.port = 9991
+        jboss.modules.dir = /opt/wildfly-javaapp/modules
+        jboss.modules.system.pkgs = org.jboss.byteman
+        jboss.node.name = web11-server
+        jboss.qualified.host.name = web11-server
+        jboss.server.base.dir = /opt/wildfly-javaapp/standalone
+        jboss.server.config.dir = /opt/wildfly-javaapp/standalone/configuration
+        jboss.server.data.dir = /opt/wildfly-javaapp/standalone/data
+        jboss.server.deploy.dir = /opt/wildfly-javaapp/standalone/data/content
+        jboss.server.log.dir = /opt/wildfly-javaapp/standalone/log
+        jboss.server.name = web11-server
+        jboss.server.persist.config = true
+        jboss.server.temp.dir = /opt/wildfly-javaapp/standalone/tmp
+        line.separator =
+
+        log.level.handler.console = OFF
+        logging.configuration = file:/opt/wildfly-javaapp/standalone/configuration/logging.properties
+        module.path = /opt/wildfly-javaapp/modules
+        org.jboss.boot.log.file = /opt/wildfly-javaapp/standalone/log/server.log
+        org.jboss.resolver.warning = true
+        org.xml.sax.driver = __redirected.__XMLReaderFactory
+        os.arch = amd64
+        os.name = Linux
+        os.version = 4.15.0-76-generic
+        path.separator = :
+        solr.solr.home = /opt/solr-production/solr
+        spring.profiles.active = prod
+        sun.arch.data.model = 64
+        sun.boot.class.path = /opt/jdk1.8.0_31/jre/lib/resources.jar:/opt/jdk1.8.0_31/jre/lib/rt.jar:/opt/jdk1.8.0_31/jre/lib/sunrsasign.jar:/opt/jdk1.8.0_31/jre/lib/jsse.jar:/opt/jdk1.8.0_31/jre/lib/jce.jar:/opt/jdk1.8.0_31/jre/lib/charsets.jar:/opt/jdk1.8.0_31/jre/lib/jfr.jar:/opt/jdk1.8.0_31/jre/classes
+        sun.boot.library.path = /opt/jdk1.8.0_31/jre/lib/amd64
+        sun.cpu.endian = little
+        sun.cpu.isalist =
+        sun.io.unicode.encoding = UnicodeLittle
+        sun.java.command = /opt/wildfly-javaapp/jboss-modules.jar -mp /opt/wildfly-javaapp/modules org.jboss.as.standalone -Djboss.home.dir=/opt/wildfly-javaapp -Djboss.server.base.dir=/opt/wildfly-javaapp/standalone -c standalone.xml
+        sun.java.launcher = SUN_STANDARD
+        sun.jnu.encoding = UTF-8
+        sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+        sun.net.http.allowRestrictedHeaders = true
+        sun.os.patch.level = unknown
+        user.dir = /data/wildfly/javaapp-wildfly-8.2.0
+        user.home = /root
+        user.language = en
+        user.name = root
+        user.timezone = Etc/UTC
+2020-07-24 13:24:17,035 DEBUG [org.jboss.as.config] (MSC service thread 1-1) VM Arguments: -D[Standalone] -Xms2G -Xmx8G -Djboss.bind.address.management=82.78.135.169 -Djboss.management.http.port=9991 -Djboss.bind.address=82.78.135.169 -Djboss.http.port=8082 -Djboss.bind.address.internal=10.0.0.1 -Djboss.http_internal.port=8082 -Djboss.bind.address.ajp_int=127.0.0.1 -Djboss.ajp.port=8011 -Dwebdb.url=jdbc:mysql://10.0.0.15:3306/webdb?autoReconnect=true&connectTimeout=1000&maxReconnects=2&initialTimeout=1 -Dbst.log.level.console=OFF -Dbst.log.level.file=WARN -Dlog.level.handler.console=OFF -Dsolr.solr.home=/opt/solr-production/solr -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -XX:+UseG1GC -XX:+PerfDisableSharedMem -XX:+ParallelRefProcEnabled -XX:G1HeapRegionSize=32M -XX:MaxGCPauseMillis=250 -XX:InitiatingHeapOccupancyPercent=75 -XX:+UseLargePages -XX:+AggressiveOpts -verbose:gc -Xloggc:/data/LOGS/javaapp-wildfly/gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+PrintAdaptiveSizePolicy -XX:+PrintReferenceGC -Dsun.net.http.allowRestrictedHeaders=true -Dspring.profiles.active=prod -Dcontext_solr_host=82.78.135.166:8081 -javaagent:/home/catalin/elastic-apm-agent-1.18.0.RC1.jar -Delastic.apm.service_name=cool-service -Delastic.apm.application_packages=org.jboss.byteman -Delastic.apm.server_urls=http://82.78.135.170:8200 -Dorg.jboss.boot.log.file=/opt/wildfly-javaapp/standalone/log/server.log -Dlogging.configuration=file:/opt/wildfly-javaapp/standalone/configuration/logging.properties
+2020-07-24 13:24:19,148 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) JBAS015014: Re-attempting failed deployment web-user-5.29.0-20200715.151713-19-stag.war
+2020-07-24 13:24:19,208 INFO  [org.jboss.as.server] (Controller Boot Thread) JBAS015888: Creating http management service using socket-binding (management-http)
+2020-07-24 13:24:19,252 INFO  [org.xnio] (MSC service thread 1-1) XNIO version 3.3.0.Final
+2020-07-24 13:24:19,280 INFO  [org.xnio.nio] (MSC service thread 1-1) XNIO NIO Implementation Version 3.3.0.Final
+2020-07-24 13:24:19,368 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 31) WFLYIO001: Worker 'default' has auto-configured to 4 core threads with 32 task threads based on your 2 available processors
+2020-07-24 13:24:19,373 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 32) JBAS010280: Activating Infinispan subsystem.
+2020-07-24 13:24:19,391 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 40) JBAS011800: Activating Naming Subsystem
+2020-07-24 13:24:19,410 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 45) JBAS013171: Activating Security Subsystem
+2020-07-24 13:24:19,411 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 46) JBAS010153: Node identifier property is set to the default value. Please make sure it is unique.
+2020-07-24 13:24:19,442 INFO  [org.jboss.remoting] (MSC service thread 1-1) JBoss Remoting version 4.0.6.Final
+2020-07-24 13:24:19,490 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 48) JBAS015537: Activating WebServices Extension
+2020-07-24 13:24:19,544 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 38) JBAS012615: Activated the following JSF Implementations: [main]
+2020-07-24 13:24:19,580 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 47) JBAS017502: Undertow 1.1.0.Final starting
+2020-07-24 13:24:19,581 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) JBAS017502: Undertow 1.1.0.Final starting
+2020-07-24 13:24:19,672 INFO  [org.jboss.as.naming] (MSC service thread 1-4) JBAS011802: Starting Naming Service
+2020-07-24 13:24:19,683 INFO  [org.jboss.as.security] (MSC service thread 1-4) JBAS013170: Current PicketBox version=4.0.21.Final
+2020-07-24 13:24:19,723 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 27) JBAS010403: Deploying JDBC-compliant driver class org.h2.Driver (version 1.3)
+2020-07-24 13:24:19,781 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-3) JBAS015400: Bound mail session [java:jboss/mail/Default]
+2020-07-24 13:24:19,811 INFO  [org.jboss.as.connector.logging] (MSC service thread 1-4) JBAS010408: Starting JCA Subsystem (IronJacamar 1.1.9.Final)
+2020-07-24 13:24:19,887 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 47) JBAS017527: Creating file handler for path /opt/wildfly-javaapp/welcome-content
+2020-07-24 13:24:19,901 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) JBAS010417: Started Driver service with driver-name = h2
+2020-07-24 13:24:20,044 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) JBAS017525: Started server default-server.
+2020-07-24 13:24:20,122 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) JBAS017531: Host default-host starting
+2020-07-24 13:24:20,425 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) JBAS017519: Undertow HTTP listener default-internal listening on /10.0.0.1:8082
+2020-07-24 13:24:20,432 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) JBAS017519: Undertow AJP listener bst-web-listener listening on /127.0.0.1:8011
+2020-07-24 13:24:20,430 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) JBAS017519: Undertow HTTP listener default listening on /82.78.135.169:8082
+2020-07-24 13:24:20,939 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015876: Starting deployment of "web-user-5.29.0-20200715.151713-19-stag.war" (runtime-name: "web-user-5.29.0-20200715.151713-19-stag.war")
+2020-07-24 13:24:20,942 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015876: Starting deployment of "mysql-connector-java-5.1.34.jar" (runtime-name: "mysql-connector-java-5.1.34.jar")
+2020-07-24 13:24:20,943 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015876: Starting deployment of "user-profile-5.29.0-20200715.151800-19-stag.war" (runtime-name: "user-profile-5.29.0-20200715.151800-19-stag.war")
+2020-07-24 13:24:20,941 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015876: Starting deployment of "bst-web-5.29.0-20200715.151550-19-stag.war" (runtime-name: "bst-web-5.29.0-20200715.151550-19-stag.war")
+2020-07-24 13:24:20,950 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015876: Starting deployment of "bst-ring-5.29.0-20200715.151601-19-stag.war" (runtime-name: "bst-ring-5.29.0-20200715.151601-19-stag.war")
+2020-07-24 13:24:20,957 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015876: Starting deployment of "bst-web-language-5.29.0-20200715.151752-19-stag.war" (runtime-name: "bst-web-language-5.29.0-20200715.151752-19-stag.war")
+2020-07-24 13:24:20,966 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-2) JBAS015012: Started FileSystemDeploymentService for directory /opt/wildfly-javaapp/standalone/deployments
+2020-07-24 13:24:21,819 INFO  [org.jboss.ws.common.management] (MSC service thread 1-4) JBWS022052: Starting JBoss Web Services - Stack CXF Server 4.3.2.Final
+2020-07-24 13:24:30,704 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) JBAS015852: Could not index class module-info.class at /content/bst-web-language-5.29.0-20200715.151752-19-stag.war/WEB-INF/lib/lombok-1.18.12.jar: java.lang.IllegalStateException: Unknown tag! pos=3 poolCount = 44
+        at org.jboss.jandex.Indexer.processConstantPool(Indexer.java:665) [jandex-1.2.1.Final.jar:1.2.1.Final]
+        at org.jboss.jandex.Indexer.index(Indexer.java:699) [jandex-1.2.1.Final.jar:1.2.1.Final]
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:100) [wildfly-server-8.2.0.Final.jar:8.2.0.Final]
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51) [wildfly-server-8.2.0.Final.jar:8.2.0.Final]
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:159) [wildfly-server-8.2.0.Final.jar:8.2.0.Final]
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1948) [jboss-msc-1.2.2.Final.jar:1.2.2.Final]
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1881) [jboss-msc-1.2.2.Final.jar:1.2.2.Final]
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [rt.jar:1.8.0_31]
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [rt.jar:1.8.0_31]
+        at java.lang.Thread.run(Thread.java:745) [rt.jar:1.8.0_31]
+
+2020-07-24 13:24:32,050 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010404: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
+2020-07-24 13:24:32,052 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010404: Deploying non-JDBC-compliant driver class com.mysql.fabric.jdbc.FabricMySQLDriver (version 5.1)
+2020-07-24 13:24:32,237 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010404: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
+2020-07-24 13:24:32,239 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010404: Deploying non-JDBC-compliant driver class com.mysql.fabric.jdbc.FabricMySQLDriver (version 5.1)
+2020-07-24 13:24:32,297 WARN  [org.jboss.as.ee] (MSC service thread 1-4) JBAS011006: Not installing optional component org.eclipse.jetty.continuation.Servlet3Continuation$1 due to an exception (enable DEBUG log level to see the cause)
+2020-07-24 13:24:32,302 WARN  [org.jboss.as.ee] (MSC service thread 1-4) JBAS011006: Not installing optional component org.eclipse.jetty.continuation.Servlet3Continuation$2 due to an exception (enable DEBUG log level to see the cause)
+2020-07-24 13:24:32,342 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010404: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
+2020-07-24 13:24:32,343 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010404: Deploying non-JDBC-compliant driver class com.mysql.fabric.jdbc.FabricMySQLDriver (version 5.1)
+2020-07-24 13:24:32,344 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010404: Deploying non-JDBC-compliant driver class org.apache.solr.client.solrj.io.sql.DriverImpl (version 1.0)
+2020-07-24 13:24:32,360 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010417: Started Driver service with driver-name = mysql-connector-java-5.1.34.jar_com.mysql.jdbc.Driver_5_1
+2020-07-24 13:24:32,788 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010417: Started Driver service with driver-name = mysql-connector-java-5.1.34.jar_com.mysql.fabric.jdbc.FabricMySQLDriver_5_1
+2020-07-24 13:24:32,788 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010417: Started Driver service with driver-name = user-profile-5.29.0-20200715.151800-19-stag.war_com.mysql.fabric.jdbc.FabricMySQLDriver_5_1
+2020-07-24 13:24:32,798 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010417: Started Driver service with driver-name = user-profile-5.29.0-20200715.151800-19-stag.war_com.mysql.jdbc.Driver_5_1
+2020-07-24 13:24:32,799 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010417: Started Driver service with driver-name = bst-ring-5.29.0-20200715.151601-19-stag.war_com.mysql.fabric.jdbc.FabricMySQLDriver_5_1
+2020-07-24 13:24:32,800 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010417: Started Driver service with driver-name = bst-ring-5.29.0-20200715.151601-19-stag.war_org.apache.solr.client.solrj.io.sql.DriverImpl_1_0
+2020-07-24 13:24:32,801 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010417: Started Driver service with driver-name = bst-ring-5.29.0-20200715.151601-19-stag.war_com.mysql.jdbc.Driver_5_1
+2020-07-24 13:24:33,248 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) JBAS010400: Bound data source [java:/jdbc/webdb]
+2020-07-24 13:24:33,943 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) JBAS017534: Registered web context: /user-profile
+2020-07-24 13:24:33,979 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) JBAS017534: Registered web context: /bst-ring
+2020-07-24 13:24:34,727 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015960: Class Path entry xml-apis.jar in /content/web-user-5.29.0-20200715.151713-19-stag.war/WEB-INF/lib/serializer-2.7.1.jar  does not point to a valid jar for a Class-Path reference.
+2020-07-24 13:24:34,841 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015960: Class Path entry xercesImpl.jar in /content/web-user-5.29.0-20200715.151713-19-stag.war/WEB-INF/lib/xalan-2.7.1.jar  does not point to a valid jar for a Class-Path reference.
+2020-07-24 13:24:34,853 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015960: Class Path entry xml-apis.jar in /content/web-user-5.29.0-20200715.151713-19-stag.war/WEB-INF/lib/xalan-2.7.1.jar  does not point to a valid jar for a Class-Path reference.
+2020-07-24 13:24:34,855 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015960: Class Path entry serializer.jar in /content/web-user-5.29.0-20200715.151713-19-stag.war/WEB-INF/lib/xalan-2.7.1.jar  does not point to a valid jar for a Class-Path reference.
+2020-07-24 13:24:36,095 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) JBAS016002: Processing weld deployment web-user-5.29.0-20200715.151713-19-stag.war
+2020-07-24 13:24:36,281 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-1) HV000001: Hibernate Validator 5.1.3.Final
+2020-07-24 13:24:37,306 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) JBAS010403: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+2020-07-24 13:24:37,313 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) JBAS010404: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
+2020-07-24 13:24:37,323 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) JBAS010404: Deploying non-JDBC-compliant driver class com.mysql.fabric.jdbc.FabricMySQLDriver (version 5.1)
+2020-07-24 13:24:37,324 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) JBAS016005: Starting Services for CDI deployment: web-user-5.29.0-20200715.151713-19-stag.war
+2020-07-24 13:24:37,413 INFO  [org.jboss.weld.Version] (MSC service thread 1-1) WELD-000900: 2.2.6 (Final)
+2020-07-24 13:24:37,457 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010417: Started Driver service with driver-name = web-user-5.29.0-20200715.151713-19-stag.war_com.mysql.jdbc.Driver_5_1
+2020-07-24 13:24:37,458 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010417: Started Driver service with driver-name = web-user-5.29.0-20200715.151713-19-stag.war_org.h2.Driver_1_4
+2020-07-24 13:24:37,460 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010417: Started Driver service with driver-name = web-user-5.29.0-20200715.151713-19-stag.war_com.mysql.fabric.jdbc.FabricMySQLDriver_5_1
+2020-07-24 13:24:37,461 INFO  [org.jboss.weld.deployer] (MSC service thread 1-4) JBAS016008: Starting weld service for deployment web-user-5.29.0-20200715.151713-19-stag.war
+2020-07-24 13:24:41,402 WARN  [org.jboss.as.ee] (MSC service thread 1-4) JBAS011006: Not installing optional component org.eclipse.jetty.continuation.Servlet3Continuation due to an exception (enable DEBUG log level to see the cause)
+2020-07-24 13:24:41,403 WARN  [org.jboss.as.ee] (MSC service thread 1-4) JBAS011006: Not installing optional component org.eclipse.jetty.servlets.DoSFilter$DoSAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2020-07-24 13:24:41,403 WARN  [org.jboss.as.ee] (MSC service thread 1-4) JBAS011006: Not installing optional component org.eclipse.jetty.servlets.DoSFilter$DoSTimeoutAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2020-07-24 13:24:41,404 WARN  [org.jboss.as.ee] (MSC service thread 1-4) JBAS011006: Not installing optional component org.eclipse.jetty.server.DebugListener$1 due to an exception (enable DEBUG log level to see the cause)
+2020-07-24 13:24:41,405 WARN  [org.jboss.as.ee] (MSC service thread 1-4) JBAS011006: Not installing optional component org.eclipse.jetty.server.handler.IdleTimeoutHandler$1 due to an exception (enable DEBUG log level to see the cause)
+2020-07-24 13:24:41,405 WARN  [org.jboss.as.ee] (MSC service thread 1-4) JBAS011006: Not installing optional component org.eclipse.jetty.server.handler.StatisticsHandler$1 due to an exception (enable DEBUG log level to see the cause)
+2020-07-24 13:24:41,406 WARN  [org.jboss.as.ee] (MSC service thread 1-4) JBAS011006: Not installing optional component org.eclipse.jetty.server.AsyncContextState$1 due to an exception (enable DEBUG log level to see the cause)
+2020-07-24 13:24:41,410 WARN  [org.jboss.as.ee] (MSC service thread 1-4) JBAS011006: Not installing optional component org.eclipse.jetty.servlets.QoSFilter$QoSAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2020-07-24 13:24:41,466 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010404: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
+2020-07-24 13:24:41,467 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010404: Deploying non-JDBC-compliant driver class com.mysql.fabric.jdbc.FabricMySQLDriver (version 5.1)
+2020-07-24 13:24:41,468 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010404: Deploying non-JDBC-compliant driver class org.apache.solr.client.solrj.io.sql.DriverImpl (version 1.0)
+2020-07-24 13:24:41,471 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) JBAS010417: Started Driver service with driver-name = bst-web-5.29.0-20200715.151550-19-stag.war_com.mysql.fabric.jdbc.FabricMySQLDriver_5_1
+2020-07-24 13:24:41,471 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) JBAS010417: Started Driver service with driver-name = bst-web-5.29.0-20200715.151550-19-stag.war_org.apache.solr.client.solrj.io.sql.DriverImpl_1_0
+2020-07-24 13:24:41,472 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) JBAS010417: Started Driver service with driver-name = bst-web-5.29.0-20200715.151550-19-stag.war_com.mysql.jdbc.Driver_5_1
+2020-07-24 13:24:42,773 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) JBAS015960: Class Path entry xml-apis.jar in /content/bst-web-language-5.29.0-20200715.151752-19-stag.war/WEB-INF/lib/serializer-2.7.1.jar  does not point to a valid jar for a Class-Path reference.
+2020-07-24 13:24:42,821 INFO  [io.undertow.servlet] (MSC service thread 1-1) Spring WebApplicationInitializers detected on classpath: [org.springframework.boot.autoconfigure.jersey.JerseyAutoConfiguration$JerseyWebApplicationInitializer@2f5fd90b, org.okidoo.web.rest.user.Application@6f8003f6]
+2020-07-24 13:24:42,903 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) JBAS015960: Class Path entry xercesImpl.jar in /content/bst-web-language-5.29.0-20200715.151752-19-stag.war/WEB-INF/lib/xalan-2.7.1.jar  does not point to a valid jar for a Class-Path reference.
+2020-07-24 13:24:42,913 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) JBAS015960: Class Path entry xml-apis.jar in /content/bst-web-language-5.29.0-20200715.151752-19-stag.war/WEB-INF/lib/xalan-2.7.1.jar  does not point to a valid jar for a Class-Path reference.
+2020-07-24 13:24:42,914 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) JBAS015960: Class Path entry serializer.jar in /content/bst-web-language-5.29.0-20200715.151752-19-stag.war/WEB-INF/lib/xalan-2.7.1.jar  does not point to a valid jar for a Class-Path reference.
+2020-07-24 13:24:44,178 INFO  [stdout] (MSC service thread 1-1)
+2020-07-24 13:24:44,181 INFO  [stdout] (MSC service thread 1-1)   .   ____          _            __ _ _
+2020-07-24 13:24:44,182 INFO  [stdout] (MSC service thread 1-1)  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2020-07-24 13:24:44,184 INFO  [stdout] (MSC service thread 1-1) ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2020-07-24 13:24:44,184 INFO  [stdout] (MSC service thread 1-1)  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2020-07-24 13:24:44,185 INFO  [stdout] (MSC service thread 1-1)   '  |____| .__|_| |_|_| |_\__, | / / / /
+2020-07-24 13:24:44,185 INFO  [stdout] (MSC service thread 1-1)  =========|_|==============|___/=/_/_/_/
+2020-07-24 13:24:44,191 INFO  [stdout] (MSC service thread 1-1)  :: Spring Boot ::        (v1.3.3.RELEASE)
+2020-07-24 13:24:44,192 INFO  [stdout] (MSC service thread 1-1)
+2020-07-24 13:24:44,367 INFO  [org.okidoo.web.rest.user.Application] (MSC service thread 1-1) Starting Application on web11-server with PID 5034 (started by root in /data/wildfly/javaapp-wildfly-8.2.0)
+2020-07-24 13:24:44,368 INFO  [org.okidoo.web.rest.user.Application] (MSC service thread 1-1) The following profiles are active: prod
+2020-07-24 13:24:44,682 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) JBAS016002: Processing weld deployment bst-web-language-5.29.0-20200715.151752-19-stag.war
+2020-07-24 13:24:45,076 INFO  [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] (MSC service thread 1-1) Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68739eff: startup date [Fri Jul 24 13:24:45 UTC 2020]; root of context hierarchy
+2020-07-24 13:24:45,195 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) JBAS010403: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+2020-07-24 13:24:45,202 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) JBAS010404: Deploying non-JDBC-compliant driver class org.apache.solr.client.solrj.io.sql.DriverImpl (version 1.0)
+2020-07-24 13:24:45,214 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) JBAS010404: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
+2020-07-24 13:24:45,215 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) JBAS010404: Deploying non-JDBC-compliant driver class com.mysql.fabric.jdbc.FabricMySQLDriver (version 5.1)
+2020-07-24 13:24:45,217 INFO  [org.jboss.weld.deployer] (MSC service thread 1-3) JBAS016005: Starting Services for CDI deployment: bst-web-language-5.29.0-20200715.151752-19-stag.war
+2020-07-24 13:24:45,243 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) JBAS010417: Started Driver service with driver-name = bst-web-language-5.29.0-20200715.151752-19-stag.war_org.apache.solr.client.solrj.io.sql.DriverImpl_1_0
+2020-07-24 13:24:45,244 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) JBAS010417: Started Driver service with driver-name = bst-web-language-5.29.0-20200715.151752-19-stag.war_com.mysql.fabric.jdbc.FabricMySQLDriver_5_1
+2020-07-24 13:24:45,246 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) JBAS010417: Started Driver service with driver-name = bst-web-language-5.29.0-20200715.151752-19-stag.war_com.mysql.jdbc.Driver_5_1
+2020-07-24 13:24:45,248 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) JBAS010417: Started Driver service with driver-name = bst-web-language-5.29.0-20200715.151752-19-stag.war_org.h2.Driver_1_4
+2020-07-24 13:24:45,250 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) JBAS016008: Starting weld service for deployment bst-web-language-5.29.0-20200715.151752-19-stag.war
+2020-07-24 13:24:46,786 INFO  [io.undertow.servlet] (MSC service thread 1-2) Spring WebApplicationInitializers detected on classpath: [org.springframework.boot.autoconfigure.jersey.JerseyAutoConfiguration$JerseyWebApplicationInitializer@1c59c64a, org.okidoo.web.rest.language.Application@3f53809b]
+2020-07-24 13:24:47,786 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] (MSC service thread 1-1) Overriding bean definition for bean 'beanNameViewResolver' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter.class]]
+2020-07-24 13:24:47,889 INFO  [stdout] (MSC service thread 1-2)
+2020-07-24 13:24:47,890 INFO  [stdout] (MSC service thread 1-2)   .   ____          _            __ _ _
+2020-07-24 13:24:47,891 INFO  [stdout] (MSC service thread 1-2)  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2020-07-24 13:24:47,891 INFO  [stdout] (MSC service thread 1-2) ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2020-07-24 13:24:47,891 INFO  [stdout] (MSC service thread 1-2)  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2020-07-24 13:24:47,892 INFO  [stdout] (MSC service thread 1-2)   '  |____| .__|_| |_|_| |_\__, | / / / /
+2020-07-24 13:24:47,892 INFO  [stdout] (MSC service thread 1-2)  =========|_|==============|___/=/_/_/_/
+2020-07-24 13:24:47,897 INFO  [stdout] (MSC service thread 1-2)  :: Spring Boot ::        (v1.3.3.RELEASE)
+2020-07-24 13:24:47,898 INFO  [stdout] (MSC service thread 1-2)
+2020-07-24 13:24:48,004 INFO  [org.okidoo.web.rest.language.Application] (MSC service thread 1-2) Starting Application on web11-server with PID 5034 (started by root in /data/wildfly/javaapp-wildfly-8.2.0)
+2020-07-24 13:24:48,006 INFO  [org.okidoo.web.rest.language.Application] (MSC service thread 1-2) The following profiles are active: prod
+2020-07-24 13:24:48,028 WARN  [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-1) IJ000604: Throwable while attempting to get a new connection: null: javax.resource.ResourceException: Could not create connection
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createLocalManagedConnection(LocalManagedConnectionFactory.java:347)
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.getLocalManagedConnection(LocalManagedConnectionFactory.java:354)
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createManagedConnection(LocalManagedConnectionFactory.java:288)
+        at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreArrayListManagedConnectionPool.createConnectionEventListener(SemaphoreArrayListManagedConnectionPool.java:1166)
+        at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreArrayListManagedConnectionPool.getConnection(SemaphoreArrayListManagedConnectionPool.java:446)
+        at org.jboss.jca.core.connectionmanager.pool.AbstractPool.getSimpleConnection(AbstractPool.java:461)
+        at org.jboss.jca.core.connectionmanager.pool.AbstractPool.getConnection(AbstractPool.java:433)
+        at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.getManagedConnection(AbstractConnectionManager.java:379)
+        at org.jboss.jca.core.connectionmanager.tx.TxConnectionManagerImpl.getManagedConnection(TxConnectionManagerImpl.java:421)
+        at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.allocateConnection(AbstractConnectionManager.java:515)
+        at org.jboss.jca.adapters.jdbc.WrapperDataSource.getConnection(WrapperDataSource.java:146)
+        at com.prompsit.utils.connections.ConnectionProvider.getConnection(ConnectionProvider.java:37) [utils-5.29.0-SNAPSHOT.jar:]
+        at com.prompsit.utils.connections.ConnectionDB.getConnection(ConnectionDB.java:23) [utils-5.29.0-SNAPSHOT.jar:]
+        at com.prompsit.bstring.wordoftheweek.logic.DAO.WordOfTheWeekSQL.getNWordsOfTheWeek(WordOfTheWeekSQL.java:121) [bst-ring-5.29.0-SNAPSHOT.jar:]
+        at com.prompsit.bstring.wordoftheweek.logic.BO.WordOfTheWeekBO.getNWordsOfTheWeek(WordOfTheWeekBO.java:85) [bst-ring-5.29.0-SNAPSHOT.jar:]
+        at com.prompsit.bstring.wordoftheweek.servlets.WordOfTheWeekServlet.processRequest(WordOfTheWeekServlet.java:96) [bst-ring-5.29.0-SNAPSHOT.jar:]
+        at com.prompsit.bstring.wordoftheweek.servlets.WordOfTheWeekServlet.doGet(WordOfTheWeekServlet.java:134) [bst-ring-5.29.0-SNAPSHOT.jar:]
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:687) [jboss-servlet-api_3.1_spec-1.0.0.Final.jar:1.0.0.Final]
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:790) [jboss-servlet-api_3.1_spec-1.0.0.Final.jar:1.0.0.Final]
+        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:85) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:61) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at org.wildfly.extension.undertow.security.SecurityContextAssociationHandler.handleRequest(SecurityContextAssociationHandler.java:78)
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.security.SSLInformationAssociationHandler.handleRequest(SSLInformationAssociationHandler.java:131) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:56) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:45) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:63) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.security.handlers.AuthenticationMechanismsHandler.handleRequest(AuthenticationMechanismsHandler.java:58) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.security.CachedAuthenticatedSessionHandler.handleRequest(CachedAuthenticatedSessionHandler.java:70) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.security.handlers.SecurityInitialHandler.handleRequest(SecurityInitialHandler.java:76) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at org.wildfly.extension.undertow.security.jacc.JACCContextIdHandler.handleRequest(JACCContextIdHandler.java:61)
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:261) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:247) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:76) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:166) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:197) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:759) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [rt.jar:1.8.0_31]
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [rt.jar:1.8.0_31]
+        at java.lang.Thread.run(Thread.java:745) [rt.jar:1.8.0_31]
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 2 times. Giving up.
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) [rt.jar:1.8.0_31]
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) [rt.jar:1.8.0_31]
+        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) [rt.jar:1.8.0_31]
+        at java.lang.reflect.Constructor.newInstance(Constructor.java:408) [rt.jar:1.8.0_31]
+        at com.mysql.jdbc.Util.handleNewInstance(Util.java:377) [mysql-connector-java-5.1.34.jar:5.1.34]
+        at com.mysql.jdbc.Util.getInstance(Util.java:360) [mysql-connector-java-5.1.34.jar:5.1.34]
+        at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) [mysql-connector-java-5.1.34.jar:5.1.34]
+        at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:935) [mysql-connector-java-5.1.34.jar:5.1.34]
+        at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:924) [mysql-connector-java-5.1.34.jar:5.1.34]
+        at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:870) [mysql-connector-java-5.1.34.jar:5.1.34]
+        at com.mysql.jdbc.ConnectionImpl.connectWithRetries(ConnectionImpl.java:2144) [mysql-connector-java-5.1.34.jar:5.1.34]
+        at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2069) [mysql-connector-java-5.1.34.jar:5.1.34]
+        at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:790) [mysql-connector-java-5.1.34.jar:5.1.34]
+        at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:44) [mysql-connector-java-5.1.34.jar:5.1.34]
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) [rt.jar:1.8.0_31]
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) [rt.jar:1.8.0_31]
+        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) [rt.jar:1.8.0_31]
+        at java.lang.reflect.Constructor.newInstance(Constructor.java:408) [rt.jar:1.8.0_31]
+        at com.mysql.jdbc.Util.handleNewInstance(Util.java:377) [mysql-connector-java-5.1.34.jar:5.1.34]
+        at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:395) [mysql-connector-java-5.1.34.jar:5.1.34]
+        at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:325) [mysql-connector-java-5.1.34.jar:5.1.34]
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createLocalManagedConnection(LocalManagedConnectionFactory.java:322)
+        ... 44 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) [rt.jar:1.8.0_31]
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) [rt.jar:1.8.0_31]
+        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) [rt.jar:1.8.0_31]
+        at java.lang.reflect.Constructor.newInstance(Constructor.java:408) [rt.jar:1.8.0_31]
+        at com.mysql.jdbc.Util.handleNewInstance(Util.java:377) [mysql-connector-java-5.1.34.jar:5.1.34]
+        at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1036) [mysql-connector-java-5.1.34.jar:5.1.34]
+        at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:338) [mysql-connector-java-5.1.34.jar:5.1.34]
+        at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2232) [mysql-connector-java-5.1.34.jar:5.1.34]
+        at com.mysql.jdbc.ConnectionImpl.connectWithRetries(ConnectionImpl.java:2085) [mysql-connector-java-5.1.34.jar:5.1.34]
+        ... 55 more
+Caused by: java.net.SocketTimeoutException: connect timed out
+        at java.net.PlainSocketImpl.socketConnect(Native Method) [rt.jar:1.8.0_31]
+        at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:345) [rt.jar:1.8.0_31]
+        at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) [rt.jar:1.8.0_31]
+        at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) [rt.jar:1.8.0_31]
+        at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) [rt.jar:1.8.0_31]
+        at java.net.Socket.connect(Socket.java:589) [rt.jar:1.8.0_31]
+        at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:213) [mysql-connector-java-5.1.34.jar:5.1.34]
+        at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:297) [mysql-connector-java-5.1.34.jar:5.1.34]
+        ... 57 more
+
+2020-07-24 13:24:48,087 WARNING [com.prompsit.utils.connections.ConnectionProvider] (default task-1) Cannot get connection for jndi: java:/jdbc/webdb.  If you are starting the web app, please ignore this step. Exception: javax.resource.ResourceException: IJ000453: Unable to get managed connection for java:/jdbc/webdb
+2020-07-24 13:24:48,088 SEVERE [com.prompsit.bstring.wordoftheweek.servlets.WordOfTheWeekServlet] (default task-1) processRequest: Can't return words of the week for the language: en. Cause: : java.lang.NullPointerException
+        at com.prompsit.bstring.wordoftheweek.logic.DAO.WordOfTheWeekSQL.getNWordsOfTheWeek(WordOfTheWeekSQL.java:126) [bst-ring-5.29.0-SNAPSHOT.jar:]
+        at com.prompsit.bstring.wordoftheweek.logic.BO.WordOfTheWeekBO.getNWordsOfTheWeek(WordOfTheWeekBO.java:85) [bst-ring-5.29.0-SNAPSHOT.jar:]
+        at com.prompsit.bstring.wordoftheweek.servlets.WordOfTheWeekServlet.processRequest(WordOfTheWeekServlet.java:96) [bst-ring-5.29.0-SNAPSHOT.jar:]
+        at com.prompsit.bstring.wordoftheweek.servlets.WordOfTheWeekServlet.doGet(WordOfTheWeekServlet.java:134) [bst-ring-5.29.0-SNAPSHOT.jar:]
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:687) [jboss-servlet-api_3.1_spec-1.0.0.Final.jar:1.0.0.Final]
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:790) [jboss-servlet-api_3.1_spec-1.0.0.Final.jar:1.0.0.Final]
+        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:85) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:61) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at org.wildfly.extension.undertow.security.SecurityContextAssociationHandler.handleRequest(SecurityContextAssociationHandler.java:78)
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.security.SSLInformationAssociationHandler.handleRequest(SSLInformationAssociationHandler.java:131) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:56) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:45) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:63) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.security.handlers.AuthenticationMechanismsHandler.handleRequest(AuthenticationMechanismsHandler.java:58) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.security.CachedAuthenticatedSessionHandler.handleRequest(CachedAuthenticatedSessionHandler.java:70) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.security.handlers.SecurityInitialHandler.handleRequest(SecurityInitialHandler.java:76) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at org.wildfly.extension.undertow.security.jacc.JACCContextIdHandler.handleRequest(JACCContextIdHandler.java:61)
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:261) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:247) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:76) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:166) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:197) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:759) [undertow-core-1.1.0.Final.jar:1.1.0.Final]
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [rt.jar:1.8.0_31]
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [rt.jar:1.8.0_31]
+        at java.lang.Thread.run(Thread.java:745) [rt.jar:1.8.0_31]
+
+2020-07-24 13:24:48,278 SEVERE [com.prompsit.bstweb.WordOfTheWeekListener] (MSC service thread 1-4) getWordsOfTheWeek: There is a problem with getWordsOfTheWeek.: com.fasterxml.jackson.databind.JsonMappingException: Can not deserialize instance of java.util.ArrayList out of VALUE_STRING token
+ at [Source: {"error":"500"}; line: 1, column: 2]
+        at com.fasterxml.jackson.databind.JsonMappingException.from(JsonMappingException.java:164) [jackson-databind-2.4.1.jar:2.4.1]
+        at com.fasterxml.jackson.databind.DeserializationContext.mappingException(DeserializationContext.java:749) [jackson-databind-2.4.1.jar:2.4.1]
+        at com.fasterxml.jackson.databind.DeserializationContext.mappingException(DeserializationContext.java:745) [jackson-databind-2.4.1.jar:2.4.1]
+        at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.handleNonArray(CollectionDeserializer.java:273) [jackson-databind-2.4.1.jar:2.4.1]
+        at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:216) [jackson-databind-2.4.1.jar:2.4.1]
+        at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:206) [jackson-databind-2.4.1.jar:2.4.1]
+        at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:25) [jackson-databind-2.4.1.jar:2.4.1]
+        at com.fasterxml.jackson.databind.deser.std.MapDeserializer._readAndBindStringMap(MapDeserializer.java:449) [jackson-databind-2.4.1.jar:2.4.1]
+        at com.fasterxml.jackson.databind.deser.std.MapDeserializer.deserialize(MapDeserializer.java:311) [jackson-databind-2.4.1.jar:2.4.1]
+        at com.fasterxml.jackson.databind.deser.std.MapDeserializer.deserialize(MapDeserializer.java:26) [jackson-databind-2.4.1.jar:2.4.1]
+        at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:3051) [jackson-databind-2.4.1.jar:2.4.1]
+        at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2153) [jackson-databind-2.4.1.jar:2.4.1]
+        at com.prompsit.bstweb.WordOfTheWeekListener.getWordsOfTheWeek(WordOfTheWeekListener.java:101) [bst-web-5.29.0-SNAPSHOT.jar:]
+        at com.prompsit.bstweb.WordOfTheWeekListener.contextInitialized(WordOfTheWeekListener.java:70) [bst-web-5.29.0-SNAPSHOT.jar:]
+        at io.undertow.servlet.core.ApplicationListeners.contextInitialized(ApplicationListeners.java:173) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at io.undertow.servlet.core.DeploymentManagerImpl.deploy(DeploymentManagerImpl.java:193) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentService.startContext(UndertowDeploymentService.java:87)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentService.start(UndertowDeploymentService.java:72)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1948)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1881)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [rt.jar:1.8.0_31]
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [rt.jar:1.8.0_31]
+        at java.lang.Thread.run(Thread.java:745) [rt.jar:1.8.0_31]
+
+2020-07-24 13:24:48,573 INFO  [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] (MSC service thread 1-2) Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@77a979f7: startup date [Fri Jul 24 13:24:48 UTC 2020]; root of context hierarchy
+2020-07-24 13:24:48,901 INFO  [org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor] (MSC service thread 1-1) JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2020-07-24 13:24:49,290 INFO  [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] (MSC service thread 1-1) Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$543f441b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 13:24:49,413 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) JBAS017534: Registered web context: /
+2020-07-24 13:24:49,759 INFO  [io.undertow.servlet] (MSC service thread 1-1) Initializing Spring embedded WebApplicationContext
+2020-07-24 13:24:49,761 INFO  [org.springframework.web.context.ContextLoader] (MSC service thread 1-1) Root WebApplicationContext: initialization completed in 4686 ms
+2020-07-24 13:24:50,796 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] (MSC service thread 1-2) Overriding bean definition for bean 'beanNameViewResolver' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter.class]]
+2020-07-24 13:24:52,146 INFO  [org.springframework.boot.autoconfigure.websocket.UndertowWebSocketContainerCustomizer] (MSC service thread 1-1) NonEmbeddedServletContainerFactory detected. Websockets support should be native so this normally is not a problem.
+2020-07-24 13:24:52,659 INFO  [org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor] (MSC service thread 1-2) JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2020-07-24 13:24:52,914 INFO  [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] (MSC service thread 1-2) Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3ea9d5f7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-24 13:24:53,018 INFO  [io.undertow.servlet] (MSC service thread 1-2) Initializing Spring embedded WebApplicationContext
+2020-07-24 13:24:53,022 INFO  [org.springframework.web.context.ContextLoader] (MSC service thread 1-2) Root WebApplicationContext: initialization completed in 4449 ms
+2020-07-24 13:24:53,285 INFO  [org.springframework.boot.context.embedded.FilterRegistrationBean] (MSC service thread 1-1) Mapping filter: 'errorPageFilter' to: [/*]
+2020-07-24 13:24:53,294 INFO  [org.springframework.boot.context.embedded.FilterRegistrationBean] (MSC service thread 1-1) Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-07-24 13:24:53,294 INFO  [org.springframework.boot.context.embedded.FilterRegistrationBean] (MSC service thread 1-1) Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-07-24 13:24:53,296 INFO  [org.springframework.boot.context.embedded.FilterRegistrationBean] (MSC service thread 1-1) Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-07-24 13:24:53,296 INFO  [org.springframework.boot.context.embedded.FilterRegistrationBean] (MSC service thread 1-1) Mapping filter: 'requestContextFilter' to: [/*]
+2020-07-24 13:24:53,299 INFO  [org.springframework.boot.context.embedded.DelegatingFilterProxyRegistrationBean] (MSC service thread 1-1) Mapping filter: 'springSecurityFilterChain' to: [/*]
+2020-07-24 13:24:53,299 INFO  [org.springframework.boot.context.embedded.FilterRegistrationBean] (MSC service thread 1-1) Mapping filter: 'responseConfigurerFilter' to: [/*]
+2020-07-24 13:24:53,300 INFO  [org.springframework.boot.context.embedded.ServletRegistrationBean] (MSC service thread 1-1) Mapping servlet: 'dispatcherServlet' to [/]
+2020-07-24 13:24:53,691 INFO  [org.springframework.boot.autoconfigure.websocket.UndertowWebSocketContainerCustomizer] (MSC service thread 1-2) NonEmbeddedServletContainerFactory detected. Websockets support should be native so this normally is not a problem.
+2020-07-24 13:24:53,817 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (MSC service thread 1-1) Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-07-24 13:24:53,831 INFO  [org.hibernate.jpa.internal.util.LogHelper] (MSC service thread 1-1) HHH000204: Processing PersistenceUnitInfo [
+        name: default
+        ...]
+2020-07-24 13:24:53,931 INFO  [org.hibernate.Version] (MSC service thread 1-1) HHH000412: Hibernate Core {4.3.11.Final}
+2020-07-24 13:24:53,934 INFO  [org.hibernate.cfg.Environment] (MSC service thread 1-1) HHH000206: hibernate.properties not found
+2020-07-24 13:24:53,936 INFO  [org.hibernate.cfg.Environment] (MSC service thread 1-1) HHH000021: Bytecode provider name : javassist
+2020-07-24 13:24:54,191 INFO  [org.springframework.boot.context.embedded.FilterRegistrationBean] (MSC service thread 1-2) Mapping filter: 'errorPageFilter' to: [/*]
+2020-07-24 13:24:54,192 INFO  [org.springframework.boot.context.embedded.FilterRegistrationBean] (MSC service thread 1-2) Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-07-24 13:24:54,192 INFO  [org.springframework.boot.context.embedded.FilterRegistrationBean] (MSC service thread 1-2) Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-07-24 13:24:54,193 INFO  [org.springframework.boot.context.embedded.FilterRegistrationBean] (MSC service thread 1-2) Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-07-24 13:24:54,193 INFO  [org.springframework.boot.context.embedded.FilterRegistrationBean] (MSC service thread 1-2) Mapping filter: 'requestContextFilter' to: [/*]
+2020-07-24 13:24:54,195 INFO  [org.springframework.boot.context.embedded.DelegatingFilterProxyRegistrationBean] (MSC service thread 1-2) Mapping filter: 'springSecurityFilterChain' to: [/*]
+2020-07-24 13:24:54,195 INFO  [org.springframework.boot.context.embedded.ServletRegistrationBean] (MSC service thread 1-2) Mapping servlet: 'dispatcherServlet' to [/]
+2020-07-24 13:24:54,203 INFO  [org.hibernate.annotations.common.Version] (MSC service thread 1-1) HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2020-07-24 13:24:54,354 INFO  [org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory] (MSC service thread 1-2) Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2020-07-24 13:24:54,666 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (MSC service thread 1-2) Using JTA UserTransaction: org.jboss.tm.usertx.client.ServerVMClientUserTransaction@382520e5
+2020-07-24 13:24:54,667 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (MSC service thread 1-2) Using JTA TransactionManager: com.arjuna.ats.jbossatx.jta.TransactionManagerDelegate@2a9a363b
+2020-07-24 13:24:54,667 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (MSC service thread 1-2) Using JTA TransactionSynchronizationRegistry: com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionSynchronizationRegistryImple@4aa60e83
+2020-07-24 13:24:54,745 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (MSC service thread 1-2) Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-07-24 13:24:54,757 INFO  [org.hibernate.jpa.internal.util.LogHelper] (MSC service thread 1-2) HHH000204: Processing PersistenceUnitInfo [
+        name: default
+        ...]
+2020-07-24 13:24:54,848 INFO  [org.hibernate.Version] (MSC service thread 1-2) HHH000412: Hibernate Core {4.3.11.Final}
+2020-07-24 13:24:54,852 INFO  [org.hibernate.cfg.Environment] (MSC service thread 1-2) HHH000206: hibernate.properties not found
+2020-07-24 13:24:54,854 INFO  [org.hibernate.cfg.Environment] (MSC service thread 1-2) HHH000021: Bytecode provider name : javassist
+2020-07-24 13:24:55,002 INFO  [org.hibernate.annotations.common.Version] (MSC service thread 1-2) HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2020-07-24 13:24:55,111 INFO  [org.hibernate.dialect.Dialect] (MSC service thread 1-2) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-07-24 13:24:55,180 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] (MSC service thread 1-2) HHH000397: Using ASTQueryTranslatorFactory
+2020-07-24 13:24:55,319 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (MSC service thread 1-2) HHH000227: Running hbm2ddl schema export
+2020-07-24 13:24:55,325 INFO  [org.hibernate.tool.hbm2ddl.SchemaExport] (MSC service thread 1-2) HHH000230: Schema export complete
+2020-07-24 13:24:56,556 INFO  [com.huaban.analysis.jieba.viterbi.FinalSeg] (MSC service thread 1-2) model load finished, time elapsed 66 ms.
+2020-07-24 13:24:57,336 WARN  [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (MSC service thread 1-1) IJ000604: Throwable while attempting to get a new connection: null: javax.resource.ResourceException: Could not create connection
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createLocalManagedConnection(LocalManagedConnectionFactory.java:347)
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.getLocalManagedConnection(LocalManagedConnectionFactory.java:354)
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createManagedConnection(LocalManagedConnectionFactory.java:288)
+        at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreArrayListManagedConnectionPool.createConnectionEventListener(SemaphoreArrayListManagedConnectionPool.java:1166)
+        at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreArrayListManagedConnectionPool.getConnection(SemaphoreArrayListManagedConnectionPool.java:446)
+        at org.jboss.jca.core.connectionmanager.pool.AbstractPool.getSimpleConnection(AbstractPool.java:461)
+        at org.jboss.jca.core.connectionmanager.pool.AbstractPool.getConnection(AbstractPool.java:433)
+        at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.getManagedConnection(AbstractConnectionManager.java:379)
+        at org.jboss.jca.core.connectionmanager.tx.TxConnectionManagerImpl.getManagedConnection(TxConnectionManagerImpl.java:421)
+        at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.allocateConnection(AbstractConnectionManager.java:515)
+        at org.jboss.jca.adapters.jdbc.WrapperDataSource.getConnection(WrapperDataSource.java:146)
+        at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:139) [hibernate-core-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.engine.jdbc.internal.JdbcServicesImpl$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcServicesImpl.java:279) [hibernate-core-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:124) [hibernate-core-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:111) [hibernate-core-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:234) [hibernate-core-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:206) [hibernate-core-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.cfg.Configuration.buildTypeRegistrations(Configuration.java:1887) [hibernate-core-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1845) [hibernate-core-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:857) [hibernate-entitymanager-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:850) [hibernate-entitymanager-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.withTccl(ClassLoaderServiceImpl.java:425) [hibernate-core-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:849) [hibernate-entitymanager-4.3.11.Final.jar:4.3.11.Final]
+        at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60) [spring-orm-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:343) [spring-orm-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:319) [spring-orm-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1637) [spring-beans-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1574) [spring-beans-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545) [spring-beans-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482) [spring-beans-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) [spring-beans-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) [spring-beans-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) [spring-beans-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) [spring-beans-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1054) [spring-context-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:829) [spring-context-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:538) [spring-context-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:118) [spring-boot-1.3.3.RELEASE.jar:1.3.3.RELEASE]
+        at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:766) [spring-boot-1.3.3.RELEASE.jar:1.3.3.RELEASE]
+        at org.springframework.boot.SpringApplication.createAndRefreshContext(SpringApplication.java:361) [spring-boot-1.3.3.RELEASE.jar:1.3.3.RELEASE]
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) [spring-boot-1.3.3.RELEASE.jar:1.3.3.RELEASE]
+        at org.springframework.boot.context.web.SpringBootServletInitializer.run(SpringBootServletInitializer.java:149) [spring-boot-1.3.3.RELEASE.jar:1.3.3.RELEASE]
+        at org.springframework.boot.context.web.SpringBootServletInitializer.createRootApplicationContext(SpringBootServletInitializer.java:129) [spring-boot-1.3.3.RELEASE.jar:1.3.3.RELEASE]
+        at org.springframework.boot.context.web.SpringBootServletInitializer.onStartup(SpringBootServletInitializer.java:85) [spring-boot-1.3.3.RELEASE.jar:1.3.3.RELEASE]
+        at org.springframework.web.SpringServletContainerInitializer.onStartup(SpringServletContainerInitializer.java:175) [spring-web-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at io.undertow.servlet.core.DeploymentManagerImpl.deploy(DeploymentManagerImpl.java:182) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentService.startContext(UndertowDeploymentService.java:87)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentService.start(UndertowDeploymentService.java:72)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1948)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1881)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [rt.jar:1.8.0_31]
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [rt.jar:1.8.0_31]
+        at java.lang.Thread.run(Thread.java:745) [rt.jar:1.8.0_31]
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 2 times. Giving up.
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) [rt.jar:1.8.0_31]
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) [rt.jar:1.8.0_31]
+        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) [rt.jar:1.8.0_31]
+        at java.lang.reflect.Constructor.newInstance(Constructor.java:408) [rt.jar:1.8.0_31]
+        at com.mysql.jdbc.Util.handleNewInstance(Util.java:377) [mysql-connector-java-5.1.38.jar:5.1.38]
+        at com.mysql.jdbc.Util.getInstance(Util.java:360) [mysql-connector-java-5.1.38.jar:5.1.38]
+        at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956) [mysql-connector-java-5.1.38.jar:5.1.38]
+        at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:935) [mysql-connector-java-5.1.38.jar:5.1.38]
+        at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:924) [mysql-connector-java-5.1.38.jar:5.1.38]
+        at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:870) [mysql-connector-java-5.1.38.jar:5.1.38]
+        at com.mysql.jdbc.ConnectionImpl.connectWithRetries(ConnectionImpl.java:2144) [mysql-connector-java-5.1.38.jar:5.1.38]
+        at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2069) [mysql-connector-java-5.1.38.jar:5.1.38]
+        at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:790) [mysql-connector-java-5.1.38.jar:5.1.38]
+        at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:44) [mysql-connector-java-5.1.38.jar:5.1.38]
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) [rt.jar:1.8.0_31]
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) [rt.jar:1.8.0_31]
+        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) [rt.jar:1.8.0_31]
+        at java.lang.reflect.Constructor.newInstance(Constructor.java:408) [rt.jar:1.8.0_31]
+        at com.mysql.jdbc.Util.handleNewInstance(Util.java:377) [mysql-connector-java-5.1.38.jar:5.1.38]
+        at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:395) [mysql-connector-java-5.1.38.jar:5.1.38]
+        at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:325) [mysql-connector-java-5.1.38.jar:5.1.38]
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createLocalManagedConnection(LocalManagedConnectionFactory.java:322)
+        ... 52 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) [rt.jar:1.8.0_31]
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) [rt.jar:1.8.0_31]
+        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) [rt.jar:1.8.0_31]
+        at java.lang.reflect.Constructor.newInstance(Constructor.java:408) [rt.jar:1.8.0_31]
+        at com.mysql.jdbc.Util.handleNewInstance(Util.java:377) [mysql-connector-java-5.1.38.jar:5.1.38]
+        at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1036) [mysql-connector-java-5.1.38.jar:5.1.38]
+        at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:338) [mysql-connector-java-5.1.38.jar:5.1.38]
+        at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2232) [mysql-connector-java-5.1.38.jar:5.1.38]
+        at com.mysql.jdbc.ConnectionImpl.connectWithRetries(ConnectionImpl.java:2085) [mysql-connector-java-5.1.38.jar:5.1.38]
+        ... 63 more
+Caused by: java.net.SocketTimeoutException: connect timed out
+        at java.net.PlainSocketImpl.socketConnect(Native Method) [rt.jar:1.8.0_31]
+        at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:345) [rt.jar:1.8.0_31]
+        at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) [rt.jar:1.8.0_31]
+        at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) [rt.jar:1.8.0_31]
+        at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) [rt.jar:1.8.0_31]
+        at java.net.Socket.connect(Socket.java:589) [rt.jar:1.8.0_31]
+        at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:213) [mysql-connector-java-5.1.38.jar:5.1.38]
+        at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:297) [mysql-connector-java-5.1.38.jar:5.1.38]
+        ... 65 more
+
+2020-07-24 13:24:57,374 WARN  [org.hibernate.engine.jdbc.internal.JdbcServicesImpl] (MSC service thread 1-1) HHH000342: Could not obtain connection to query metadata : javax.resource.ResourceException: IJ000453: Unable to get managed connection for java:/jdbc/webdb
+2020-07-24 13:24:57,377 WARN  [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] (MSC service thread 1-1) Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/okidoo/web/rest/user/store/PersistenceJNDIConfig.class]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+2020-07-24 13:24:57,383 ERROR [org.springframework.boot.SpringApplication] (MSC service thread 1-1) Application startup failed: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/okidoo/web/rest/user/store/PersistenceJNDIConfig.class]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1578) [spring-beans-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545) [spring-beans-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482) [spring-beans-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) [spring-beans-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) [spring-beans-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) [spring-beans-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) [spring-beans-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1054) [spring-context-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:829) [spring-context-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:538) [spring-context-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:118) [spring-boot-1.3.3.RELEASE.jar:1.3.3.RELEASE]
+        at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:766) [spring-boot-1.3.3.RELEASE.jar:1.3.3.RELEASE]
+        at org.springframework.boot.SpringApplication.createAndRefreshContext(SpringApplication.java:361) [spring-boot-1.3.3.RELEASE.jar:1.3.3.RELEASE]
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) [spring-boot-1.3.3.RELEASE.jar:1.3.3.RELEASE]
+        at org.springframework.boot.context.web.SpringBootServletInitializer.run(SpringBootServletInitializer.java:149) [spring-boot-1.3.3.RELEASE.jar:1.3.3.RELEASE]
+        at org.springframework.boot.context.web.SpringBootServletInitializer.createRootApplicationContext(SpringBootServletInitializer.java:129) [spring-boot-1.3.3.RELEASE.jar:1.3.3.RELEASE]
+        at org.springframework.boot.context.web.SpringBootServletInitializer.onStartup(SpringBootServletInitializer.java:85) [spring-boot-1.3.3.RELEASE.jar:1.3.3.RELEASE]
+        at org.springframework.web.SpringServletContainerInitializer.onStartup(SpringServletContainerInitializer.java:175) [spring-web-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at io.undertow.servlet.core.DeploymentManagerImpl.deploy(DeploymentManagerImpl.java:182) [undertow-servlet-1.1.0.Final.jar:1.1.0.Final]
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentService.startContext(UndertowDeploymentService.java:87)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentService.start(UndertowDeploymentService.java:72)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1948)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1881)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [rt.jar:1.8.0_31]
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [rt.jar:1.8.0_31]
+        at java.lang.Thread.run(Thread.java:745) [rt.jar:1.8.0_31]
+Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+        at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:104) [hibernate-core-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:71) [hibernate-core-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:205) [hibernate-core-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:111) [hibernate-core-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:234) [hibernate-core-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:206) [hibernate-core-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.cfg.Configuration.buildTypeRegistrations(Configuration.java:1887) [hibernate-core-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1845) [hibernate-core-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:857) [hibernate-entitymanager-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:850) [hibernate-entitymanager-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.withTccl(ClassLoaderServiceImpl.java:425) [hibernate-core-4.3.11.Final.jar:4.3.11.Final]
+        at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:849) [hibernate-entitymanager-4.3.11.Final.jar:4.3.11.Final]
+        at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60) [spring-orm-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:343) [spring-orm-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:319) [spring-orm-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1637) [spring-beans-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1574) [spring-beans-4.2.5.RELEASE.jar:4.2.5.RELEASE]
+        ... 25 more
+
+2020-07-24 13:24:57,388 WARN  [org.springframework.boot.SpringApplication] (MSC service thread 1-1) Error handling failed (Error creating bean with name 'delegatingApplicationListener' defined in class path resource [org/springframework/security/config/annotation/web/configuration/WebSecurityConfiguration.class]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration': Initialization of bean failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importRegistry' is defined)
+2020-07-24 13:24:57,389 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-1) MSC000001: Failed to start service jboss.undertow.deployment.default-server.default-host./web-user: org.jboss.msc.service.StartException in service jboss.undertow.deployment.default-server.default-host./web-user: Failed to start service
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1904) [jboss-msc-1.2.2.Final.jar:1.2.2.Final]
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [rt.jar:1.8.0_31]
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [rt.jar:1.8.0_31]
+        at java.lang.Thread.run(Thread.java:745) [rt.jar:1.8.0_31]
+Caused by: java.lang.RuntimeException: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/okidoo/web/rest/user/store/PersistenceJNDIConfig.class]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+        at io.undertow.servlet.core.DeploymentManagerImpl.deploy(DeploymentManagerImpl.java:222)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentService.startContext(UndertowDeploymentService.java:87)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentService.start(UndertowDeploymentService.java:72)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1948) [jboss-msc-1.2.2.Final.jar:1.2.2.Final]
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1881) [jboss-msc-1.2.2.Final.jar:1.2.2.Final]
+        ... 3 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/okidoo/web/rest/user/store/PersistenceJNDIConfig.class]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1578)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+        at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+        at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1054)
+        at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:829)
+        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:538)
+        at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:118)
+        at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:766)
+        at org.springframework.boot.SpringApplication.createAndRefreshContext(SpringApplication.java:361)
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+        at org.springframework.boot.context.web.SpringBootServletInitializer.run(SpringBootServletInitializer.java:149)
+        at org.springframework.boot.context.web.SpringBootServletInitializer.createRootApplicationContext(SpringBootServletInitializer.java:129)
+        at org.springframework.boot.context.web.SpringBootServletInitializer.onStartup(SpringBootServletInitializer.java:85)
+        at org.springframework.web.SpringServletContainerInitializer.onStartup(SpringServletContainerInitializer.java:175)
+        at io.undertow.servlet.core.DeploymentManagerImpl.deploy(DeploymentManagerImpl.java:182)
+        ... 7 more
+Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+        at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:104)
+        at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:71)
+        at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:205)
+        at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:111)
+        at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:234)
+        at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:206)
+        at org.hibernate.cfg.Configuration.buildTypeRegistrations(Configuration.java:1887)
+        at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1845)
+        at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:857)
+        at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:850)
+        at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.withTccl(ClassLoaderServiceImpl.java:425)
+        at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:849)
+        at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+        at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:343)
+        at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:319)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1637)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1574)
+        ... 25 more
+
+2020-07-24 13:24:58,971 INFO  [com.huaban.analysis.jieba.WordDictionary] (MSC service thread 1-2) main dict load finished 349040, time elapsed 2410 ms
+2020-07-24 13:24:58,973 INFO  [com.huaban.analysis.jieba.WordDictionary] (MSC service thread 1-2) initialize user dictionary:/sougou.dict
+2020-07-24 13:24:59,773 INFO  [com.huaban.analysis.jieba.WordDictionary] (MSC service thread 1-2) user dict /sougou.dict load finished, tot words:94640, time elapsed:798ms
+2020-07-24 13:25:00,519 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (MSC service thread 1-2) Mapped "{[/transliteration],methods=[GET]}" onto public org.okidoo.web.rest.language.controller.dto.TransliterationResponse org.okidoo.web.rest.language.controller.TransliterationController.getTransliteration(java.lang.String,java.lang.String)
+2020-07-24 13:25:00,529 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (MSC service thread 1-2) Mapped "{[/swagger-resources]}" onto public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2020-07-24 13:25:00,530 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (MSC service thread 1-2) Mapped "{[/swagger-resources/configuration/ui]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2020-07-24 13:25:00,531 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (MSC service thread 1-2) Mapped "{[/swagger-resources/configuration/security]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2020-07-24 13:25:00,540 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (MSC service thread 1-2) Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-07-24 13:25:00,541 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (MSC service thread 1-2) Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-07-24 13:25:00,952 INFO  [org.springframework.boot.autoconfigure.security.AuthenticationManagerConfiguration] (MSC service thread 1-2)
+
+Using default security password: 8d4d52bf-ede7-4827-af2f-440557b6a5b1
+
+2020-07-24 13:25:01,114 INFO  [org.springframework.security.web.DefaultSecurityFilterChain] (MSC service thread 1-2) Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@31a85053, org.springframework.security.web.context.SecurityContextPersistenceFilter@66ee9ab6, org.springframework.security.web.header.HeaderWriterFilter@337a0145, org.springframework.security.web.authentication.logout.LogoutFilter@49642c41, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@69cd393e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@30d05b63, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5907cabd, org.springframework.security.web.session.SessionManagementFilter@65b1f9e4, org.springframework.security.web.access.ExceptionTranslationFilter@797b8f92]
+2020-07-24 13:25:01,182 INFO  [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping] (MSC service thread 1-2) Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-07-24 13:25:01,346 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] (MSC service thread 1-2) Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@77a979f7: startup date [Fri Jul 24 13:24:48 UTC 2020]; root of context hierarchy
+2020-07-24 13:25:01,404 INFO  [org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter] (MSC service thread 1-2) Adding welcome page: class path resource [static/index.html]
+2020-07-24 13:25:01,419 INFO  [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping] (MSC service thread 1-2) Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2020-07-24 13:25:01,441 INFO  [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping] (MSC service thread 1-2) Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-07-24 13:25:01,441 INFO  [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping] (MSC service thread 1-2) Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-07-24 13:25:01,480 INFO  [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] (MSC service thread 1-2) Detected @ExceptionHandler methods in restExceptionHandler
+2020-07-24 13:25:01,513 INFO  [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping] (MSC service thread 1-2) Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-07-24 13:25:03,113 INFO  [org.springframework.jmx.export.annotation.AnnotationMBeanExporter] (MSC service thread 1-2) Registering beans for JMX exposure on startup
+2020-07-24 13:25:03,133 INFO  [org.springframework.context.support.DefaultLifecycleProcessor] (MSC service thread 1-2) Starting beans in phase 2147483647
+2020-07-24 13:25:03,133 INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] (MSC service thread 1-2) Context refreshed
+2020-07-24 13:25:03,172 INFO  [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper] (MSC service thread 1-2) Found 1 custom documentation plugin(s)
+2020-07-24 13:25:03,261 INFO  [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner] (MSC service thread 1-2) Scanning for api listing references
+2020-07-24 13:25:03,732 INFO  [org.okidoo.web.rest.language.Application] (MSC service thread 1-2) Started Application in 16.757 seconds (JVM running for 47.795)
+2020-07-24 13:25:03,760 INFO  [javax.enterprise.resource.webcontainer.jsf.config] (MSC service thread 1-2) Initializing Mojarra 2.2.8-jbossorg-1 20140822-1131 for context '/bst-web-language'
+2020-07-24 13:25:09,265 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) JBAS017534: Registered web context: /bst-web-language
+2020-07-24 13:25:09,283 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) JBAS014613: Operation ("deploy") failed - address: ([("deployment" => "web-user-5.29.0-20200715.151713-19-stag.war")]) - failure description: {"JBAS014671: Failed services" => {"jboss.undertow.deployment.default-server.default-host./web-user" => "org.jboss.msc.service.StartException in service jboss.undertow.deployment.default-server.default-host./web-user: Failed to start service
+    Caused by: java.lang.RuntimeException: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/okidoo/web/rest/user/store/PersistenceJNDIConfig.class]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+    Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/okidoo/web/rest/user/store/PersistenceJNDIConfig.class]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+    Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set"}}
+2020-07-24 13:25:09,391 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 28) JBAS018559: Deployed "mysql-connector-java-5.1.34.jar" (runtime-name : "mysql-connector-java-5.1.34.jar")
+2020-07-24 13:25:09,392 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 28) JBAS018559: Deployed "bst-web-5.29.0-20200715.151550-19-stag.war" (runtime-name : "bst-web-5.29.0-20200715.151550-19-stag.war")
+2020-07-24 13:25:09,393 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 28) JBAS018559: Deployed "user-profile-5.29.0-20200715.151800-19-stag.war" (runtime-name : "user-profile-5.29.0-20200715.151800-19-stag.war")
+2020-07-24 13:25:09,394 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 28) JBAS018559: Deployed "web-user-5.29.0-20200715.151713-19-stag.war" (runtime-name : "web-user-5.29.0-20200715.151713-19-stag.war")
+2020-07-24 13:25:09,394 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 28) JBAS018559: Deployed "bst-web-language-5.29.0-20200715.151752-19-stag.war" (runtime-name : "bst-web-language-5.29.0-20200715.151752-19-stag.war")
+2020-07-24 13:25:09,394 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 28) JBAS018559: Deployed "bst-ring-5.29.0-20200715.151601-19-stag.war" (runtime-name : "bst-ring-5.29.0-20200715.151601-19-stag.war")
+2020-07-24 13:25:09,395 INFO  [org.jboss.as.controller] (Controller Boot Thread) JBAS014774: Service status report
+JBAS014777:   Services which failed to start:      service jboss.undertow.deployment.default-server.default-host./web-user: org.jboss.msc.service.StartException in service jboss.undertow.deployment.default-server.default-host./web-user: Failed to start service
+
+2020-07-24 13:25:09,465 INFO  [org.jboss.as] (Controller Boot Thread) JBAS015961: Http management interface listening on http://82.78.135.169:9991/management
+2020-07-24 13:25:09,466 INFO  [org.jboss.as] (Controller Boot Thread) JBAS015951: Admin console listening on http://82.78.135.169:9991
+2020-07-24 13:25:09,466 ERROR [org.jboss.as] (Controller Boot Thread) JBAS015875: WildFly 8.2.0.Final "Tweek" started (with errors) in 53323ms - Started 1858 of 1943 services (2 services failed or missing dependencies, 140 services are lazy, passive or on-demand)
+2020-07-24 13:25:09,670 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) JBAS010418: Stopped Driver service with driver-name = web-user-5.29.0-20200715.151713-19-stag.war_com.mysql.jdbc.Driver_5_1
+2020-07-24 13:25:09,670 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010418: Stopped Driver service with driver-name = web-user-5.29.0-20200715.151713-19-stag.war_org.h2.Driver_1_4
+2020-07-24 13:25:09,671 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010418: Stopped Driver service with driver-name = web-user-5.29.0-20200715.151713-19-stag.war_com.mysql.fabric.jdbc.FabricMySQLDriver_5_1
+2020-07-24 13:25:09,695 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) JBAS016009: Stopping weld service for deployment web-user-5.29.0-20200715.151713-19-stag.war
+2020-07-24 13:25:09,814 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015877: Stopped deployment web-user-5.29.0-20200715.151713-19-stag.war (runtime-name: web-user-5.29.0-20200715.151713-19-stag.war) in 154ms
+2020-07-24 13:25:09,938 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 2) JBAS018558: Undeployed "web-user-5.29.0-20200715.151713-19-stag.war" (runtime-name: "web-user-5.29.0-20200715.151713-19-stag.war")
+2020-07-24 13:25:09,944 INFO  [org.jboss.as.controller] (DeploymentScanner-threads - 2) JBAS014774: Service status report
+JBAS014775:    New missing/unsatisfied dependencies:
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."com.sun.faces.config.ConfigureListener".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."javax.faces.webapp.FacetTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."javax.servlet.jsp.jstl.tlv.PermittedTaglibsTLV".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."javax.servlet.jsp.jstl.tlv.ScriptFreeTLV".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.common.core.CatchTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.common.core.ChooseTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.common.core.OtherwiseTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.common.core.RemoveTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.common.xml.ForEachTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.common.xml.IfTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.common.xml.SetTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.common.xml.WhenTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.core.ForEachTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.core.ForTokensTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.core.IfTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.core.ImportTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.core.OutTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.core.ParamTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.core.RedirectTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.core.SetTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.core.UrlTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.core.WhenTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.fmt.BundleTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.fmt.FormatDateTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.fmt.FormatNumberTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.fmt.MessageTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.fmt.ParamTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.fmt.ParseDateTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.fmt.ParseNumberTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.fmt.RequestEncodingTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.fmt.SetBundleTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.fmt.SetLocaleTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.fmt.SetTimeZoneTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.fmt.TimeZoneTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.sql.DateParamTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.sql.ParamTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.sql.QueryTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.sql.SetDataSourceTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.sql.TransactionTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.sql.UpdateTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.xml.ExprTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.xml.ParamTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.xml.ParseTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.el.xml.TransformTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.core.ForEachTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.core.ForTokensTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.core.IfTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.core.ImportTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.core.OutTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.core.ParamTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.core.RedirectTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.core.SetTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.core.UrlTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.core.WhenTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.fmt.BundleTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.fmt.FormatDateTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.fmt.MessageTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.fmt.ParamTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.fmt.ParseDateTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.fmt.ParseNumberTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.fmt.RequestEncodingTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.fmt.SetBundleTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.fmt.SetLocaleTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.fmt.SetTimeZoneTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.fmt.TimeZoneTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.sql.DateParamTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.sql.ParamTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.sql.QueryTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.sql.SetDataSourceTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.sql.TransactionTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.sql.UpdateTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.xml.ExprTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.xml.ParamTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.xml.ParseTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tag.rt.xml.TransformTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tlv.JstlCoreTLV".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tlv.JstlFmtTLV".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tlv.JstlSqlTLV".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tlv.JstlXmlTLV".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tlv.el.JstlELCoreTLV".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tlv.el.JstlELFmtTLV".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tlv.el.JstlELSqlTLV".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.apache.taglibs.standard.tlv.el.JstlELXmlTLV".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.jboss.weld.servlet.WeldInitialListener".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.jboss.weld.servlet.WeldTerminalListener".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.http.server.ServletServerHttpAsyncRequestControl".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.context.request.async.StandardServletAsyncWebRequest".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.ArgumentTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.BindErrorsTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.BindTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.EscapeBodyTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.EvalTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.HtmlEscapeTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.MessageTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.NestedPathTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.ParamTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.ThemeTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.TransformTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.UrlTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.form.ButtonTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.form.CheckboxTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.form.CheckboxesTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.form.ErrorsTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.form.FormTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.form.HiddenInputTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.form.InputTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.form.LabelTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.form.OptionTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.form.OptionsTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.form.RadioButtonTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.form.RadioButtonsTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.form.SelectTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".component."org.springframework.web.servlet.tags.form.TextareaTag".START (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+      service jboss.undertow.deployment.default-server.default-host./web-user (missing) dependents: [service jboss.deployment.unit."web-user-5.29.0-20200715.151713-19-stag.war".deploymentCompleteService]
+JBAS014777:   Services which failed to start:      service jboss.undertow.deployment.default-server.default-host./web-user
+
+2020-07-24 13:26:06,015 INFO  [io.undertow.servlet] (default task-2) org.tuckey.web.filters.urlrewrite.UrlRewriteFilter INFO: loaded (conf ok)
+2020-07-24 13:26:27,540 INFO  [SEARCHLOG] (default task-5) q-service    good-bye        en      fr      0       1       3065    10      3065    1       20     86.11.224.211  en      Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36              -1             00               1
+2020-07-24 13:26:33,468 INFO  [SEARCHLOG] (default task-7) q-service    good-bye        en      fr      0       1       3065    10      3065    1       20     86.11.224.211  en      Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36              -1             00               1
+2020-07-24 13:26:37,016 INFO  [SEARCHLOG] (default task-8) q-service    good-bye        en      fr      0       1       3065    10      3065    1       20     86.11.224.211  en      Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36              -1             00               1
+2020-07-24 13:26:38,077 INFO  [SEARCHLOG] (default task-9) q-service    good-bye        en      fr      0       1       3065    10      3065    1       20     86.11.224.211  en      Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36              -1             00               1
+2020-07-24 13:26:38,930 INFO  [SEARCHLOG] (default task-11) q-service   good-bye        en      fr      0       1       3065    10      3065    1       20     86.11.224.211  en      Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36              -1             00               1
