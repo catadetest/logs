@@ -1,0 +1,19 @@
+apm-server:
+  host: "0.0.0.0:8200"
+  rum:
+    enabled: true
+
+output:
+  elasticsearch:
+    hosts: localhost:9200
+
+queue.mem.events: 4096
+
+max_procs: 4
+logging.level: info
+logging.to_files: true
+logging.files:
+  path: /var/log/apm-server
+  name: apm-server
+  keepfiles: 7
+  permissions: 0644
